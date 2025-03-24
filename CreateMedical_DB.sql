@@ -32,9 +32,7 @@ CREATE TABLE Medical_db.Diagnoses (
     diagnosis_name VARCHAR(255),
     doctor_id INT,
     diagnosis_date DATETIME,
-    diagnosis_notes TEXT,
-    FOREIGN KEY (patient_id) REFERENCES patients(patient_id),
-    FOREIGN KEY (doctor_id) REFERENCES doctors(doctor_id)
+    diagnosis_notes TEXT
 );
 
 CREATE TABLE Medical_db.Symptoms (
@@ -43,8 +41,7 @@ CREATE TABLE Medical_db.Symptoms (
     symptom_name VARCHAR(255),
     severity VARCHAR(50),
     start_date DATE,
-    duration_days INT,
-    FOREIGN KEY (patient_id) REFERENCES patients(patient_id)
+    duration_days INT
 );
 
 CREATE TABLE Medical_db.Treatments (
@@ -57,10 +54,7 @@ CREATE TABLE Medical_db.Treatments (
     treatment_start_date DATE,
     treatment_end_date DATE,
     doctor_id INT,
-    treatment_notes TEXT,
-    FOREIGN KEY (patient_id) REFERENCES patients(patient_id),
-    FOREIGN KEY (diagnosis_id) REFERENCES Diagnoses(diagnosis_id),
-    FOREIGN KEY (doctor_id) REFERENCES doctors(doctor_id)
+    treatment_notes TEXT
 );
 
 CREATE TABLE Medical_db.Disease_Progression (
@@ -71,9 +65,7 @@ CREATE TABLE Medical_db.Disease_Progression (
     symptom_status VARCHAR(255),
     treatment_effectiveness VARCHAR(255),
     recovery_status VARCHAR(255),
-    notes TEXT,
-    FOREIGN KEY (patient_id) REFERENCES patients(patient_id),
-    FOREIGN KEY (diagnosis_id) REFERENCES Diagnoses(diagnosis_id)
+    notes TEXT
 );
 
 CREATE TABLE Medical_db.Healing_Ratios (
@@ -84,9 +76,7 @@ CREATE TABLE Medical_db.Healing_Ratios (
     recovered_cases INT,
     death_cases INT,
     recovery_rate FLOAT,
-    mortality_rate FLOAT,
-    FOREIGN KEY (diagnosis_id) REFERENCES Diagnoses(diagnosis_id),
-    FOREIGN KEY (treatment_id) REFERENCES Treatments(treatment_id)
+    mortality_rate FLOAT
 );
 
 CREATE TABLE Medical_db.Disease (
